@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Dilin P | SOC Analyst & Detection Engineering</title>
+<style>
+:root{--bg:#f7f8fa;--card:#fff;--text:#14181f;--muted:#5b6472;--accent:#0a7c5a;--line:#e2e6ec;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0d1117;--card:#151b23;--text:#e6edf3;--muted:#8b96a5;--accent:#3ddc97;--line:#263040}}
+:root[data-theme="dark"]{--bg:#0d1117;--card:#151b23;--text:#e6edf3;--muted:#8b96a5;--accent:#3ddc97;--line:#263040}
+*{box-sizing:border-box}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--text);font:16px/1.65 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+.wrap{max-width:900px;margin:0 auto;padding:0 20px}
+nav{display:flex;gap:18px;flex-wrap:wrap;padding:18px 0;font-size:14px}
+nav a{color:var(--muted);text-decoration:none}nav a:hover{color:var(--accent)}
+.hero{padding:56px 0 40px}
+.tag{font-family:ui-monospace,Menlo,Consolas,monospace;color:var(--accent);font-size:14px}
+h1{font-size:clamp(34px,6vw,52px);line-height:1.1;margin:8px 0 12px}
+.lead{color:var(--muted);max-width:62ch;font-size:18px}
+.btns{display:flex;gap:12px;flex-wrap:wrap;margin-top:24px}
+.btn{padding:10px 18px;border-radius:8px;border:1px solid var(--accent);color:var(--accent);text-decoration:none;font-weight:600}
+.btn.p{background:var(--accent);color:var(--bg)}
+section{padding:36px 0;border-top:1px solid var(--line)}
+h2{font-size:22px;margin:0 0 18px}
+h2::before{content:"# ";color:var(--accent);font-family:ui-monospace,Menlo,monospace}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px;display:flex;flex-direction:column}
+.card h3{margin:0 0 6px;font-size:17px}.card p{margin:0 0 10px;color:var(--muted);font-size:15px}
+.card a{margin-top:auto;color:var(--accent);font-weight:600;font-size:14px;text-decoration:none}
+.card.feat{grid-column:1/-1;border-color:var(--accent)}
+.card.feat h3{font-size:20px}
+.new{display:inline-block;margin-left:8px;padding:1px 8px;border-radius:999px;background:var(--accent);color:var(--bg);font-size:11px;font-weight:700;vertical-align:2px}
+.card.feat ul.b{margin-bottom:12px}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:10px}
+.chip{border:1px solid var(--line);background:var(--card);border-radius:999px;padding:3px 11px;font-size:13px}
+.meta{font-family:ui-monospace,Menlo,monospace;font-size:12px;color:var(--accent);margin-bottom:6px}
+.skill{margin:0 0 14px}.skill b{display:block;font-size:14px;margin-bottom:6px}
+ul.b{margin:0;padding-left:18px;color:var(--muted);font-size:15px}
+footer{padding:30px 0 50px;color:var(--muted);font-size:14px;border-top:1px solid var(--line)}
+</style>
+</head>
+<body>
+<div class="wrap">
+<nav><a href="#about">About</a><a href="#projects">Projects</a><a href="#experience">Experience</a><a href="#skills">Skills</a><a href="#contact">Contact</a></nav>
+
+<header class="hero">
+<div class="tag">$ whoami</div>
+<h1>Dilin P</h1>
+<p class="lead">Aspiring SOC Analyst and Detection Engineer in Kannur, Kerala. I build and validate detections in Splunk and Microsoft Sentinel, map what I find to MITRE ATT&amp;CK, and build Python tooling that automates SOC triage with local LLMs.</p>
+<div class="btns"><a class="btn p" href="#projects">View projects</a><a class="btn" href="#contact">Get in touch</a></div>
+</header>
+
+<section id="about">
+<h2>About</h2>
+<p>I'm moving into SOC and detection engineering after 2+ years of payment gateway transaction monitoring and alert triage. That work taught me to separate false positives from genuine incidents and to document investigations clearly. Since then I've built hands-on labs covering attack investigation, detection development, log analysis, IOC investigation and threat hunting. I hold a B.Tech in Aeronautical Engineering (2019&ndash;2023, ACE College of Engineering, Thiruvananthapuram).</p>
+</section>
+
+<section id="projects">
+<h2>Projects</h2>
+<div class="grid">
+<div class="card feat"><div class="meta">AI &middot; LOG ANALYSIS &middot; THREAT INTEL</div><h3>LogSight<span class="new">LATEST</span></h3>
+<p>A zero-cost, fully local log analysis platform that uses an LLM (Qwen3 4B via Ollama) to triage security logs. Upload logs through a web interface and LogSight parses, stores and enriches them, then presents findings on a SOAR-style dark dashboard.</p>
+<ul class="b">
+<li>FastAPI web app with log upload and a parse &rarr; ingest &rarr; enrich &rarr; detect pipeline that runs automatically after each upload.</li>
+<li>SQLite schema with 8 tables, report views, batch tracking, dedup hashes and a MITRE ATT&amp;CK lookup table, feeding 6 dashboard reports.</li>
+<li>IP reputation engine querying VirusTotal, AbuseIPDB and AlienVault OTX, with a 24-hour cache and a consensus verdict.</li>
+<li>Incident detector plus a Qwen3 narrator that writes plain-language incident summaries, verified by an automated test suite.</li>
+</ul>
+<div class="chips"><span class="chip">Python</span><span class="chip">FastAPI</span><span class="chip">SQLite</span><span class="chip">Ollama</span><span class="chip">Qwen3 4B</span><span class="chip">VirusTotal</span><span class="chip">AbuseIPDB</span><span class="chip">AlienVault OTX</span><span class="chip">MITRE ATT&amp;CK</span></div>
+<a href="https://github.com/illutionist-0x/logsight">View on GitHub &rarr;</a></div>
+
+<div class="card"><div class="meta">DETECTION ENGINEERING</div><h3>Splunk BOTS v1 Detection Lab</h3>
+<p>Investigated a simulated web attack in the 33M+ event BOTS v1 dataset with SPL, reconstructing recon, brute force, web-shell deployment and defacement. Built and validated four detection rules (recon, credential attacks, anomalous logins, malicious DNS/C2), added threat hunting and ATT&amp;CK mapping, and a Dashboard Studio view.</p>
+<div class="chips"><span class="chip">Splunk</span><span class="chip">SPL</span><span class="chip">Dashboard Studio</span><span class="chip">MITRE ATT&amp;CK</span></div>
+<a href="https://github.com/illutionist-0x/splunk-bots-v1-detection-lab">View on GitHub &rarr;</a></div>
+
+<div class="card"><div class="meta">CLOUD &middot; SIEM</div><h3>Azure Honeypot &amp; Sentinel Lab</h3>
+<p>Exposed a Windows VM in Azure to capture real RDP brute-force attempts, forwarded Event ID 4625 through Azure Monitor into Sentinel, and enriched attacker IPs with a 54,000-row Geo-IP watchlist using KQL. A Sentinel Workbook maps attack origins across 10+ countries.</p>
+<div class="chips"><span class="chip">Azure</span><span class="chip">Sentinel</span><span class="chip">KQL</span><span class="chip">Log Analytics</span></div>
+<a href="https://github.com/illutionist-0x/azure-honeypot-soc-lab">View on GitHub &rarr;</a></div>
+
+<div class="card"><div class="meta">PYTHON &middot; CRYPTOGRAPHY</div><h3>StegoCrypt</h3>
+<p>Command-line steganography tool using LSB pixel manipulation, with AES encryption via salted PBKDF2-HMAC-SHA256 (100,000 iterations). Includes hide, extract and metadata-clean operations, capacity checks, and notes on ATT&amp;CK T1027.003 with entropy-based detection ideas.</p>
+<div class="chips"><span class="chip">Python</span><span class="chip">AES</span><span class="chip">argparse</span></div></div>
+
+<div class="card"><div class="meta">NETWORK SECURITY</div><h3>pfSense Firewall Lab</h3>
+<p>Configured WAN/LAN interfaces, firewall rules and NAT in a virtual pfSense environment, then validated rule enforcement from virtual clients.</p></div>
+
+<div class="card"><div class="meta">EMAIL SECURITY</div><h3>Phishing Investigation Lab</h3>
+<p>Analysed email headers, senders, URLs and phishing indicators, and correlated related network activity in Splunk to decide alert disposition.</p></div>
+
+<div class="card"><div class="meta">INCIDENT ANALYSIS</div><h3>SOC Investigation Lab</h3>
+<p>Investigated Windows and Sysmon event logs, identified IOCs, and mapped findings to MITRE ATT&amp;CK tactics and techniques.</p></div>
+</div>
+</section>
+
+<section id="experience">
+<h2>Experience &amp; Certifications</h2>
+<div class="grid">
+<div class="card"><div class="meta">JUN 2023 &ndash; JUL 2026</div><h3>Transaction Monitoring &amp; Alert Handling Analyst</h3>
+<ul class="b"><li>Monitored live payment gateway transactions and alerts, prioritising high-risk events.</li><li>Triaged alerts using logs and context to separate false positives from real incidents.</li><li>Ran root-cause analysis and escalated critical incidents within SLA.</li><li>Documented findings, escalations and resolutions.</li></ul><p style="margin-top:8px">PayAtom</p></div>
+<div class="card"><div class="meta">FORAGE &middot; 2026</div><h3>Mastercard Cybersecurity</h3><p>Job simulation on the Security Awareness Team: identified and reported phishing threats and designed training for the teams that needed it most.</p></div>
+<div class="card"><div class="meta">FORAGE &middot; 2026</div><h3>TCS Cybersecurity Analyst</h3><p>Job simulation covering identity and access management, working with a cybersecurity consulting team.</p></div>
+<div class="card"><div class="meta">FORAGE &middot; 2026</div><h3>Deloitte Australia Cyber</h3><p>Job simulation analysing web activity logs and supporting a client through a security breach.</p></div>
+</div>
+</section>
+
+<section id="skills">
+<h2>Skills</h2>
+<div class="skill"><b>Security Operations</b><div class="chips"><span class="chip">Security Monitoring</span><span class="chip">Alert Investigation</span><span class="chip">SIEM</span><span class="chip">Splunk</span><span class="chip">Microsoft Sentinel</span></div></div>
+<div class="skill"><b>Detection &amp; Threat Hunting</b><div class="chips"><span class="chip">Detection Engineering</span><span class="chip">SPL</span><span class="chip">KQL</span><span class="chip">Threat Hunting</span><span class="chip">Log Correlation</span><span class="chip">IOC Investigation</span></div></div>
+<div class="skill"><b>Security Analysis</b><div class="chips"><span class="chip">Phishing Email &amp; URL Analysis</span><span class="chip">MITRE ATT&amp;CK</span><span class="chip">Incident Investigation &amp; Reporting</span></div></div>
+<div class="skill"><b>Automation &amp; AI</b><div class="chips"><span class="chip">Python</span><span class="chip">FastAPI</span><span class="chip">SQLite</span><span class="chip">Local LLMs (Ollama)</span><span class="chip">Threat Intel APIs</span></div></div>
+<div class="skill"><b>Network &amp; Systems</b><div class="chips"><span class="chip">TCP/IP</span><span class="chip">Network Security</span><span class="chip">pfSense</span><span class="chip">Windows &amp; Linux Administration</span></div></div>
+<div class="skill"><b>Cloud &amp; Identity</b><div class="chips"><span class="chip">Microsoft Azure</span><span class="chip">Cloud Security</span><span class="chip">IAM</span><span class="chip">Access Control</span></div></div>
+<div class="skill"><b>Governance &amp; Risk</b><div class="chips"><span class="chip">Risk Assessment</span><span class="chip">Security Controls</span><span class="chip">GRC Fundamentals</span></div></div>
+</section>
+
+<section id="contact">
+<h2>Contact</h2>
+<p>Open to SOC Analyst, Detection Engineering and Security Operations roles.</p>
+<div class="btns">
+<a class="btn p" href="mailto:dilinvinod4@gmail.com">dilinvinod4@gmail.com</a>
+<a class="btn" href="https://www.linkedin.com/in/dilin-v-6b360a265">LinkedIn</a>
+<a class="btn" href="https://github.com/illutionist-0x">GitHub</a>
+</div>
+</section>
+
+<footer>&copy; 2026 Dilin P &middot; Kannur, Kerala, India</footer>
+</div>
+</body>
+</html>
